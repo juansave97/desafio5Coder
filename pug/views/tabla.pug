@@ -1,0 +1,26 @@
+extends layout
+
+block contenedor
+    if productos.length > 0
+        div.container.mt-3
+            div.jumbotron
+                div.table-responsive
+                    table.table.table-dark
+                        tbody
+                        tr(style='color: blue;')
+                            th Nombre
+                            |  
+                            th Precio
+                            |  
+                            th Url imagen 
+                        
+                        each producto in productos
+                            tr
+                                td= producto.nombre
+                                td= producto.precio
+                                td
+                                    img(src=producto.url, alt="")
+                    a.btn.btn-success.mt-3.mb-5(href='/') Volver al formulario
+    else 
+        h3.alert.alert-danger no se encontraron datos
+
